@@ -171,7 +171,8 @@ Q_CLUSTER = {
     'name': 'IMS_Q_Cluster',
     'workers': 4,
     'recycle': 500,
-    'timeout': 90,
+    "timeout": 120,     # task max execution time
+    "retry": 150,      
     'compress': True,
     'save_limit': 250,
     'queue_limit': 500,
