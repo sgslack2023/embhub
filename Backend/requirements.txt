@@ -106,7 +106,6 @@ typing_extensions==4.15.0
 tzdata==2025.2
 urllib3==2.5.0
 uvicorn==0.37.0
-xhtml2pdf==0.2.18
 wcwidth==0.2.14
 websockets==15.0.1
 whitenoise==6.11.0
