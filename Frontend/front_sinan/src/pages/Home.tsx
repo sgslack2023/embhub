@@ -55,6 +55,7 @@ import { Chart } from 'react-google-charts';
 import DashboardKPICard from "../components/DashboardKPICard";
 import ProductKPITable from "../components/ProductKPITable";
 import { getAuthToken } from "../utils/functions";
+import { getApiBaseUrl } from "../utils/network";
 import axios from "axios";
 
 const { Title, Text } = Typography;
@@ -179,7 +180,7 @@ function Home(){
       }
       params.append('time_period', 'all'); // You can make this dynamic later
 
-      const url = `${process.env.REACT_APP_API_URL || 'http://localhost:8000'}/api/masterdata/dashboard/sku-analysis/?${params}`;
+      const url = `${getApiBaseUrl()}/masterdata/dashboard/sku-analysis/?${params}`;
       const response = await axios.get(url, authHeaders);
       
       if (response.data.success) {
@@ -204,8 +205,8 @@ function Home(){
       }
 
       console.log('✅ Auth headers found for customer profit data:', authHeaders);
-      
-      const url = `${process.env.REACT_APP_API_URL || 'http://localhost:8000'}/api/masterdata/dashboard/customer-profit-analysis/`;
+
+      const url = `${getApiBaseUrl()}/masterdata/dashboard/customer-profit-analysis/`;
       console.log('📡 Making request to customer profit API:', url);
 
       const response = await axios.get(url, authHeaders);
@@ -246,8 +247,8 @@ function Home(){
       }
 
       console.log('✅ Auth headers found:', authHeaders);
-      
-      const url = `${process.env.REACT_APP_API_URL || 'http://localhost:8000'}/api/masterdata/dashboard/kpis/`;
+
+      const url = `${getApiBaseUrl()}/masterdata/dashboard/kpis/`;
       console.log('📡 Making request to:', url);
 
       const response = await axios.get(url, authHeaders);
@@ -288,7 +289,7 @@ function Home(){
       const authHeaders = getAuthToken();
       if (!authHeaders) return;
 
-      const url = `${process.env.REACT_APP_API_URL || 'http://localhost:8000'}/api/masterdata/orders/by-status/?status=${status}`;
+      const url = `${getApiBaseUrl()}/masterdata/orders/by-status/?status=${status}`;
       const response = await axios.get(url, authHeaders);
       
       if (response.data.success) {
@@ -319,7 +320,7 @@ function Home(){
       const authHeaders = getAuthToken();
       if (!authHeaders) return;
 
-      const url = `${process.env.REACT_APP_API_URL || 'http://localhost:8000'}/api/masterdata/product/analytics/?product_code=${productCode}`;
+      const url = `${getApiBaseUrl()}/masterdata/product/analytics/?product_code=${productCode}`;
       const response = await axios.get(url, authHeaders);
       
       if (response.data.success) {

@@ -2,6 +2,12 @@
 
 export const BaseUrl="http://3.209.226.240/api/"
 
+// Helper function to get the API base URL (with /api included)
+export const getApiBaseUrl = (): string => {
+  // Return the base URL with /api included (without trailing slash)
+  return BaseUrl.replace(/\/$/, '');
+}
+
 
 export const LoginUrl = BaseUrl+ "user/login"
 export const MeUrl = BaseUrl + "user/Me"

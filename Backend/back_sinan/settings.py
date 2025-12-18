@@ -157,8 +157,8 @@ EMAIL_HOST_PASSWORD = 'ivsm kocb tejs mvjh'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-RESET_URL = 'https://govfleet.online/resetpassword'
-CHECK_URL='https://govfleet.online/check-user'
+RESET_URL = 'http://3.209.226.240/resetpassword'
+CHECK_URL='http://3.209.226.240/check-user'
 
 
 MEDIA_URL = '/media/'

@@ -1,4 +1,5 @@
 // Utility functions for handling file operations
+import { getApiBaseUrl } from './network';
 
 /**
  * Extract file ID from Google Drive URL
@@ -48,10 +49,10 @@ export const extractFileIdFromUrl = (url: string): string | null => {
 export const getFileViewerUrl = (googleDriveUrl: string): string | null => {
   const fileId = extractFileIdFromUrl(googleDriveUrl);
   if (!fileId) return null;
-  
+
   // Construct backend file viewer URL
-  const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
-  return `${baseUrl}/api/masterdata/file/${fileId}/`;
+  const baseUrl = getApiBaseUrl();
+  return `${baseUrl}/masterdata/file/${fileId}/`;
 };
 
 /**
@@ -150,10 +151,10 @@ export const fetchFileContent = async (googleDriveUrl: string, authHeaders: any)
     if (!fileId) {
       return { success: false, error: 'Could not extract file ID from URL' };
     }
-    
-    const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
-    const url = `${baseUrl}/api/masterdata/file/${fileId}/`;
-    
+
+    const baseUrl = getApiBaseUrl();
+    const url = `${baseUrl}/masterdata/file/${fileId}/`;
+
     const response = await fetch(url, {
       method: 'GET',
       headers: authHeaders.headers,
