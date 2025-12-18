@@ -1,0 +1,16 @@
+# PDF Processing and OCR Dependencies for Shipping Labels
+
+# OPTION 1: PyMuPDF (RECOMMENDED - No poppler needed!)
+# pip install PyMuPDF pytesseract opencv-python Pillow
+PyMuPDF==1.23.9
+pytesseract==0.3.10
+opencv-python==4.8.1.78
+Pillow==10.0.0
+
+# OPTION 2: pdf2image (Requires poppler installation)
+# Uncomment below if you prefer pdf2image instead
+# PyPDF2==3.0.1
+# pdf2image==1.16.3
+# pytesseract==0.3.10
+# opencv-python==4.8.1.78
+# Pillow==10.0.0
